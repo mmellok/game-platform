@@ -1,0 +1,133 @@
+@import "@/styles/base";
+
+.customButton {
+  @mixin mod($mod) {
+    @include modifier("customButton", $mod) {
+      @content;
+    }
+  }
+
+  width: var(--button-width, auto);
+  height: var(--button-height, auto);
+  text-transform: var(--button-text-transform, uppercase);
+  font-weight: var(--button-font-weight, 500);
+  background-color: var(--button-bg-color, #{$BLUE});
+  color: var(--button-text-color, black);
+  font-family: $BASE-FONT;
+  max-width: 100%;
+
+  --button-border: none;
+  transition-property: var(--button-transition-property, transform, opacity);
+  transition-duration: var(--button-transition-duration, 0.3s);
+  transition-timing-function: var(--button-tf, ease-in-out);
+  grid-gap: var(--button-grid-gap, 8px);
+
+  &_transparent {
+    --button-bg-color: none;
+  }
+
+  &_rev {
+    --button-flex-direction: row-reverse;
+  }
+
+  &_back {
+    @include option(--button-width, 48px, 32px);
+    --button-height: var(--button-width);
+  }
+
+  &_border {
+    --button-bg-color: none;
+    --button-border: 1px solid #{$BLACK};
+  }
+
+  &_icon {
+    @include option(--button-width, 50px);
+    --button-height: var(--button-width);
+  }
+
+  &_closeIcon {
+    @include option(--button-width, 22px);
+    --button-height: var(--button-width);
+  }
+
+  &_generate {
+    @include option(--button-height, 32px, 24px);
+  }
+
+  &_rotate {
+    --button-icon-transform: rotate(-180deg);
+  }
+
+  &_player {
+    --button-bg-color: #{$GREEN};
+    --button-width: 2em;
+    --button-height: var(--button-width);
+    --button-padding: 0.5em;
+    --button-icon-width: 100%;
+  }
+
+  &.button_down {
+    transform: scale(0.9);
+  }
+
+
+  &__text {
+    font-size: var(--button-font-size, 16px);
+    @include mod("generate") {
+      order: 2;
+    }
+    @include mod("hideContent") {
+      opacity: 0;
+    }
+    @include mod("rev") {
+      order: 2;
+    }
+  }
+
+  &__image {
+    display: flex;
+    width: var(--button-icon-width, 2em);
+    height: var(--button-icon-height, var(--button-icon-width));
+    transform: var(--button-icon-transform, none);
+    transition: opacity 0.3s ease-in-out 0.2s;
+
+    svg, img {
+      width: var(--button-img-width, 100%);
+      height: var(--button-img-height, 100%);
+    }
+  }
+
+  &__load {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @include option(width, 32px);
+    @include option(height, 32px);
+    @include option(margin, auto);
+
+    svg, img {
+      width: 100%;
+      height: 100%;
+    }
+
+    &-enter {
+      opacity: 0;
+    }
+
+    &-enter-active {
+      opacity: 1;
+      transition: opacity 0.3s ease-in-out 0.3s;
+    }
+
+    &-exit {
+      opacity: 1;
+    }
+
+    &-exit-active {
+      opacity: 0;
+      transition: opacity 0.2s ease-in-out;
+    }
+  }
+}

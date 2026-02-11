@@ -1,0 +1,116 @@
+@import "@/styles/base";
+
+.customHeader {
+  @mixin mod($mod) {
+    @include modifier("customHeader", $mod) {
+      @content;
+    }
+  }
+
+  @mixin menu-visible {
+
+      #menu-burger:checked ~ * & {
+        @content;
+      }
+  }
+
+  @include option(padding, 20px);
+  background: $BLACK;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  z-index: $z-header;
+
+
+  &__block {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    position: relative;
+    @include option(width, 88px, 88px*0.5);
+    @include option(height, 89px, 89px*0.5);
+    background: red;
+  }
+
+  &__burger {
+    $h: 3px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    @include option-mob(width, 40px - 5px);
+    @include option-mob(height, 30px - 5px);
+    @include option-mob(padding, 20px - 5px);
+    transition: height 0.3s, transform 0.3s, opacity 0.3s;
+    cursor: pointer;
+
+    @include is-burger {
+      display: flex;
+    }
+
+    @include mod("on"){
+      p {
+        &:nth-child(1) {
+          transform: rotate(-45deg) translateY(-2px);
+        }
+
+        &:nth-child(2) {
+          opacity: 0;
+        }
+
+        &:nth-child(3) {
+          transform: rotate(45deg) translateY(2px);
+        }
+      }
+    }
+
+    p {
+      width: 100%;
+      height: $h;
+      margin: 0;
+      background-color: $WHITE;
+      transition: transform 0.3s, opacity 0.3s;
+      transform-origin: center right;
+    }
+  }
+
+  &__wrapper {
+    display: inline-block;
+    vertical-align: middle;
+    box-sizing: border-box;
+
+    @include is-burger {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $BLACK;
+      transform: translateX(100%);
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+
+    @include mod("on"){
+      @include is-burger {
+        transform: translateX(0%);
+      }
+    }
+  }
+
+  &__content {
+
+    width: 100%;
+    height: 100%;
+
+    @include is-burger {
+      @include option-mob(padding, 20px 80px 20px 30px);
+      box-sizing: border-box;
+    }
+  }
+
+
+
+}

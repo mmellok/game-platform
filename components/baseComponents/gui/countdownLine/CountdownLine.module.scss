@@ -1,0 +1,25 @@
+@import "@/styles/base";
+
+.countdownLine {
+  @mixin mod($mod) {
+    @include modifier("countdownLine", $mod) {
+      @content;
+    }
+  }
+  @mixin mods($mods...) {
+    @for $i from 0 to length($mods) {
+      .countdownLine_#{nth($mods, $i + 1)} & {
+        @content;
+      }
+    }
+  }
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--timer-padding, 0 0.5em);
+  line-height: var(--timer-line-height, 1.5);
+  background: var(--timer-bg, red);
+  border-radius: var(--timer-border-radius, 1.5em);
+  color: var(--timer-colro, white);
+}

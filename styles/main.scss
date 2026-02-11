@@ -1,0 +1,22 @@
+@import "base";
+@import "normalize";
+
+:root{
+  --modal-opacity-start:0;
+  --modal-opacity-end:1;
+  --modal-transform-start:scale(0.7);
+  --modal-transform-end:scale(1);
+  --modal-content-width:70vw;
+  --button-font-size: 16px;
+
+  --track-color:rgba(0,0,0,.1);
+  --thumb-color:rgba(0,0,0,.5);
+  --track-width: .5em;
+  --track-offset-start: .5em;
+  --track-offset-end: var(--track-offset-start,.5em);
+  --track-border-radius: .5em;
+
+  #menu-burger{
+    display: none;
+  }
+}

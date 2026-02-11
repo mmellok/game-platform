@@ -1,0 +1,46 @@
+@import "@/styles/base";
+
+$color-1: #ff0000;
+$color-2: #ffff00;
+
+.progressbar {
+
+}
+
+.progressbarCircle {
+  circle {
+    stroke: $color-1;
+  }
+}
+
+.progressbarRect {
+  $height: 1em;
+  border: 2px solid #000000;
+  width: 10em;
+  height: $height;
+  border-radius: 1em;
+  padding: 2px;
+
+  &__bar {
+    width: 100%;
+    height: 100%;
+    border-radius: 1em;
+    overflow: hidden;
+  }
+  &__barLine {
+    width: 100%;
+    height: 100%;
+    transform-origin: 0 50%;
+    background: linear-gradient(135deg, $color-1 33.33%, $color-2 33.33%, $color-2 66.67%, $color-1 66.67%) 0 0 / #{2 * $height} 100%;
+    border-radius: 1em;
+
+    @include animation(progressbarRect__barLine 5s linear infinite) {
+      0% {
+        background-position: 100% 0;
+      }
+      100% {
+        background-position: 0% 0;
+      }
+    }
+  }
+}

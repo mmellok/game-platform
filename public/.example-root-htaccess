@@ -1,0 +1,18 @@
+Options +FollowSymlinks -Indexes
+SetEnv HTTP_MOD_REWRITE On
+RewriteEngine On
+RewriteCond %{REQUEST_URI} !^/htdocs\/
+RewriteRule ^(.*)$ htdocs/$1
+
+# Добавление слэша к директориям без него
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{REQUEST_URI} !/$
+RewriteRule ^(.*)$ %{REQUEST_URI}/ [R=302,L]
+
+# Если существует .php файл — подставляем .php
+RewriteCond %{DOCUMENT_ROOT}/htdocs/$1.php -f
+RewriteRule ^(.+?)/?$ $1.php [END]
+
+# Если существует .html файл — подставляем .html
+RewriteCond %{DOCUMENT_ROOT}/htdocs/$1.html -f
+RewriteRule ^(.+?)/?$ $1.html [END]

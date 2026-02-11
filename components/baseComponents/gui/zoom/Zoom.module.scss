@@ -1,0 +1,119 @@
+@import "@/styles/base";
+
+.zoom {
+  @mixin mod($mod) {
+    @include modifier("zoom", $mod){
+      @content;
+    }
+  }
+
+  width:92/35*1em;
+  height:524/35*1em;
+  border-radius:15/35*1em;
+  background-color: $WHITE;
+
+  &__bg {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 80/35*1em 0;
+    width: 21/35*1em;
+    height: 394/35*1em;
+    margin: auto;
+    background-color: #CECECD;
+    box-sizing: border-box;
+  }
+
+  &__bgLine {
+    width:35/35*1em;
+    height:5/35*1em;
+    border-radius :5/35*1em;
+    background-color: #CECECD;
+  }
+
+  &__pointWrapper {
+    position: absolute;
+    top:85/35*1em;
+    left:14/35*1em;
+    width:120/35*1em;
+    height:350/35*1em;
+  }
+
+  &__point {
+    position: absolute;
+    left: 0;
+    width:49/35*1em;
+    height:26/35*1em;
+    top:11/35*1em;
+    margin: 0 0 0 -15/35*1em;
+    border-radius:74/35*1em;
+    background: #3C5604;
+    display: block;
+
+    pointer-events: none;
+    touch-action: none;
+  }
+
+  &__button {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    font-size: 66/35*1em;
+    width: 1em;
+    height: 1em;
+    padding: 0;
+    border-radius: 50%;
+    background: #3C5604;
+    border: none;
+
+    &:before, &:after {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 34/66*1em;
+      height: 3/66*1em;
+      border-radius:3/66*1em;
+      margin: auto;
+      background-color: $WHITE;
+    }
+
+    &:after {
+      transform: rotate(90deg);
+    }
+
+    &_add {
+      top:20/35*1em;
+
+      &:before, &:after {
+        content: ""
+      }
+    }
+
+    &_del {
+      bottom:20/35*1em;
+
+      &:before {
+        content: ""
+      }
+    }
+
+    &_add, &_del {
+      bottom:20/35*1em;
+    }
+
+    svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+}

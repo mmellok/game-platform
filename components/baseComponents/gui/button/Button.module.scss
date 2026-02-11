@@ -1,0 +1,36 @@
+@import "@/styles/base";
+
+.button {
+  cursor: pointer;
+
+  position: var(--button-position, relative);
+  display: var(--button-display, inline-flex);
+  flex-direction: var(--buttom-flex-direction, row);
+  justify-content: var(--button-justify-content, center);
+  align-items: var(--button-align-items, center);
+  font-size: var(--button-font-size, 1em);
+  padding: var(--button-padding, 0);
+  text-decoration: var(--button-text-decoration, none);
+  background-color: var(--button-bg-color, none);
+  border: var(--button-border, 1px solid );
+  border-radius: var(--button-border-radius, 0);
+  box-sizing: border-box;
+
+
+  &[disabled] {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  &_up {
+    --button-bg-color: greenyellow
+  }
+  &_down{
+    --button-bg-color: lightblue
+  }
+
+  &_hover {
+    --button-bg-color: white
+  }
+
+}

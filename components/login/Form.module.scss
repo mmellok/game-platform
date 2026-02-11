@@ -1,0 +1,12 @@
+@import "styles/base";
+
+.form {
+  width: 350px; //TODO магическое число, чисто для ограничения ширины формы
+  display: flex;
+  flex-direction: column;
+  grid-gap: var(--form-gap, 10px);
+
+  &__input{}
+  &__checkbox{}
+  &__button{}
+}
