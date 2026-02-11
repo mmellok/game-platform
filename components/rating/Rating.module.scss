@@ -1,0 +1,17 @@
+@import "@/styles/base";
+
+.rating {
+  @mixin mod($mod) {
+    @include modifier("rating", $mod){
+      @content;
+    }
+  }
+  @mixin mods($mods...) {
+    @for $i from 0 to length($mods) {
+      .rating_#{nth($mods, $i + 1)} & {
+        @content;
+      }
+    }
+  }
+}
+

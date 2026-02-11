@@ -1,0 +1,17 @@
+@import "@/styles/base";
+
+.main {
+  @mixin mod($mod) {
+    @include modifier("main", $mod){
+      @content;
+    }
+  }
+  @mixin mods($mods...) {
+    @for $i from 0 to length($mods) {
+      .main_#{nth($mods, $i + 1)} & {
+        @content;
+      }
+    }
+  }
+}
+

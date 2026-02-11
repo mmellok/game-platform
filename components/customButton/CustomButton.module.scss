@@ -1,0 +1,136 @@
+@import "@/styles/base";
+
+.customButton {
+  @mixin mod($mod) {
+    @include modifier("customButton", $mod) {
+      @content;
+    }
+  }
+
+  @mixin mods($mods...) {
+    @for $i from 0 to length($mods) {
+      .customButton_#{nth($mods, $i + 1)} & {
+        @content;
+      }
+    }
+  }
+
+  @include option(--width, 328px);
+  @include option(--height, 60px);
+  @include option(--bRad, 16px);
+  @include option(--bWidth, 2px);
+  @include option(--size, 20px);
+  @include option(--priceSize, 20px);
+  @include option(--spanSize, 16px);
+  @include option(--gap, 4px);
+  @include option(--padding, 0);
+
+  border: solid var(--border, transparent);
+  border-width: var(--bWidth, 0px);
+  border-radius: var(--bRad, 0px);
+  background: var(--bg, transparent);
+  box-shadow: 0px 2px 0px 0px var(--shadow, transparent);
+
+  --bg: linear-gradient(180deg, #6bf3ff 0%, #2196F3 100%);
+  --border: #3565bb;
+  --shadow: #3565bb;
+
+  position: relative;
+  width: var(--width);
+  @include option(min-width, 0);
+  height: var(--height);
+  @include option(padding, 0);
+  cursor: pointer;
+  text-decoration: none;
+  align-items: start;
+  max-width: 100%;
+  box-sizing: border-box;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, background 0.3s ease-in-out;
+
+  &.button_down {
+    transform: scale(0.9);
+  }
+
+  &[disabled] {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  &:active{
+    transform: scale(0.9);
+  }
+
+  @include mod("icon") {
+    @include option(--width, 48px);
+    @include option(--height, var(--width));
+    @include option(--bRad, 12px);
+    @include option(--img-height, 28px);
+    @include option(--img-width, 28px);
+  }
+
+  @include mod("sound") {
+    @include option(--gap, 7px);
+    @include option(--img-height, 24px);
+    @include option(--img-width, 24px);
+  }
+
+  @include mod("soundIntro") {
+    @include option(--width, auto);
+    @include option(height, var(--width));
+    @include option(--padding, 11px 19px 11px 19px);
+    @include option(--img-width, 24px);
+    @include option(--img-height, 24px);
+  }
+
+  @include mod("transparent") {
+    @include option(padding, 0);
+    @include option(border-radius, 0);
+    --bg: none;
+    --border: transparent;
+    --shadow: none;
+    border: none;
+  }
+
+  &__block {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    grid-gap: var(--gap, 0);
+    padding: var(--padding, 0);
+  }
+
+  &__text {
+    position: relative;
+    z-index: 10;
+    font-size: var(--size, 20px);
+    color: var(--color, $WHITE);
+    font-weight: bold;
+    transition: color 0.3s ease-out, transform 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+  }
+
+  &__image {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    width: var(--img-width, 100%);
+    height: var(--img-height, 100%);
+    transition: 0.3s ease-in-out;
+    transition-property: var(--btn-image-property, transform);
+  }
+
+  &__tutor {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    width: 140%;
+    height: 126%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+  }
+}

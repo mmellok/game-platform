@@ -97,12 +97,14 @@
 
 
 @mixin option($n, $v, $vm: $v, $vt: $vm) {
-  @include option-desk($n, $v);
-  @include option-mob($n, $vm, $vt);
+  #{$n}: vh($v);
+
+  @include MOBILE {
+    #{$n}: vhm($vm);
+  }
 }
 
 @mixin option-mob($n, $vm, $vt: $vm) {
-
   @include MOBILE {
     #{$n}: vwm($vm);
     :global(.landscapeMob) & {

@@ -1,0 +1,17 @@
+@import "@/styles/base";
+
+.sound {
+  @mixin mod($mod) {
+    @include modifier("sound", $mod){
+      @content;
+    }
+  }
+  @mixin mods($mods...) {
+    @for $i from 0 to length($mods) {
+      .sound_#{nth($mods, $i + 1)} & {
+        @content;
+      }
+    }
+  }
+}
+

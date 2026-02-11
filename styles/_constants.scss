@@ -21,7 +21,9 @@ $RED: #ff0000;
 $GRAY: #808080;
 $BUTTON: yellow;
 $GREEN: green;
-$BLUE: #00b6ff;
+$BLUE: #e1faff;
+$BLUE-B: #b0f2ff;
+$TEXT: #512f2f;
 
 /**
  * z-layer
@@ -55,9 +57,13 @@ $FW-HEAVY: 900;
 $DESIGN-W-R: 2200px;
 $DESIGN-W: 1920px;
 $DESIGN-H: 1080px;
-$DESIGN-W-M: 414px;
-$DESIGN-H-M: 736px;
+$DESIGN-W-M: 360px;
+$DESIGN-H-M: 678px;
 $DESIGN-W-T: 768px;
 $DESIGN-H-T: 1024px;
 $PIC: 20px;
 $CELL-W: 194px;
+
+$pSide: 16px;
+$pTop: 60px;
+$pBottom: 60px;

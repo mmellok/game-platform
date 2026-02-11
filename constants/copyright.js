@@ -1,16 +1,32 @@
-export const header = {
-  menuList: {
-    customMenuItems: [
-      {
-        index: "1",
-        itemsHref: "#",
-        itemsText: "Link 1"
-      },
-      {
-        index: "2",
-        itemsHref: "#",
-        itemsText: "Link 2"
-      }
-    ]
+import {baseUrl, image} from "../utils/data/baseUrl";
+
+
+export const authContent = {
+
+};
+
+
+export const introContent = {
+  img: image("img.png"),
+  title: "Welcome!",
+  loadNote: 'Loading...',
+  doneNote: "Press button",
+  button: {
+    text: "Play",
+    action: {
+      type: "setState",
+      state: "auth"
+    }
   }
 };
+
+
+export const mainContent = {
+
+};
+
+
+export const ratingContent = {
+
+};
+

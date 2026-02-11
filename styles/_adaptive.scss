@@ -1,5 +1,5 @@
 @mixin MOBILE() {
-  @media screen and (max-width: $TABLET-L - 1) { @content; }
+  @media screen and (max-width: $DESKTOP - 1) { @content; }
 }
 @mixin NOT-MOBILE() {
   @media screen and (min-width: $TABLET) { @content; }
