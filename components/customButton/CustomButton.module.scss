@@ -68,6 +68,14 @@
     @include option(--img-width, 28px);
   }
 
+  @include mod("menu") {
+    @include option(--width, 60px);
+    @include option(--height, var(--width));
+    @include option(--bRad, 0px);
+    @include option(--img-height, 60px);
+    @include option(--img-width, 60px);
+  }
+
   @include mod("sound") {
     @include option(--gap, 7px);
     @include option(--img-height, 24px);

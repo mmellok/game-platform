@@ -7,13 +7,41 @@
     }
   }
 
-  &__name{
-  }
+    display: flex;
+  @include option(--width, 328px);
+  @include option(--height, 60px);
+  @include option(--bRad, 16px);
+  @include option(--bWidth, 2px);
+  @include option(--size, 20px);
+  @include option(--padding, 15px);
+
+  --bg: #{$WHITE};
+  --border: #3565bb;
+
+  position: relative;
+  width: var(--width);
+  @include option(min-width, 0);
+  height: var(--height);
+  cursor: pointer;
+  text-decoration: none;
+  align-items: start;
+  max-width: 100%;
+  box-sizing: border-box;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, background 0.3s ease-in-out;
 
   &__block{
-  }
-
-  &__error {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border: solid var(--border);
+    padding:  var(--padding);
+    border-width: var(--bWidth, 0px);
+    border-radius: var(--bRad, 0px);
+    background-color: var(--bg);
+    font-size: var(--size);
+    color: $TEXT;
+    text-align: center;
+    box-sizing: border-box;
   }
 
 }

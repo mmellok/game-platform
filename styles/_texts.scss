@@ -6,14 +6,13 @@
   font-family: $BASE-FONT;
   @include option(font-size, $PIC);
 
-  color: #000000;
+  color: $TEXT;
 }
 
 
 
 %Question {
   font-family: $FONT;
-  color: $TEXT;
   @include option(font-size, 18px);
   line-height: 1.2;
   text-transform: uppercase;

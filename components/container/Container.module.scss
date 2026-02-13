@@ -37,20 +37,20 @@
       min-width: 100%;
     }
 
-    &-enter{
+    &:global(.container__block-enter){
       opacity: 0;
     }
 
-    &-enter-active{
+    &:global(.container__block-enter-active){
       opacity: 1;
       transition: opacity 0.3s ease-in-out;
     }
 
-    &-exit{
+    &:global(.container__block-exit){
       opacity: 1;
     }
 
-    &-exit-active{
+    &:global(.container__block-exit-active){
       opacity: 0;
       transition: opacity 0.3s ease-in-out;
     }

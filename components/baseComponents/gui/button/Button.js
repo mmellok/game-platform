@@ -17,7 +17,7 @@ const Button = React.forwardRef(
                     compclass,
                     color,
                     border,
-                    type,
+                    type = "button",
                     onClick,
                     children,
                     up,
@@ -37,6 +37,7 @@ const Button = React.forwardRef(
     return (
       <Tag
         {...rest}
+        type={type}
         className={
           classNames(
             styles.button, "button", compclass,

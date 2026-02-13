@@ -13,5 +13,15 @@
       }
     }
   }
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  @include option(padding, $pTop $pSide $pBottom);
+  box-sizing: border-box;
 }
 

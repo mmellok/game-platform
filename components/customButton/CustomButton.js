@@ -20,6 +20,7 @@ const CustomButton = forwardRef(function (
     target,
     mods,
     action,
+    type = "button",
     ...rest
   },
   ref
@@ -53,6 +54,7 @@ const CustomButton = forwardRef(function (
       tag={tag}
       href={href}
       target={target}
+      type={type}
       {...rest}
     >
       {children ?? (

@@ -17,5 +17,39 @@
   position: relative;
   width: 100%;
   height: 100%;
+
+  &__block{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    @include option(padding, $pTop $pSide $pBottom);
+    box-sizing: border-box;
+  }
+
+  &__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__title{
+    @extend %TITLE;
+    margin: 0;
+    text-align: center;
+  }
+
+  &__form{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    margin: auto auto 0;
+    @include option(gap, 10px)
+  }
 }
 
